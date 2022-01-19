@@ -4,9 +4,11 @@ from django.shortcuts import render
 
 def project_list(request):
     """List all projects."""
-    return HttpResponse("Project list")
+    return render(request, "budget/project-list.html")
 
 
 def project_details(request, project_slug):
     """Show details for a specific project."""
-    return HttpResponse(f"Project detail for {project_slug}")
+    return render(
+        request, "budget/project-details.html", context={"name": project_slug}
+    )
