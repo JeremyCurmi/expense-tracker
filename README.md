@@ -1,32 +1,22 @@
 # Expense Tracker API
 
+Backend API + slick dashboard for personal expense tracking.
 
-Expense Tracker API is a backend application designed to help users manage their personal expenses.
-Users can register, log in, update their username or delete their account, and perform CRUD operations on their expenses.
-The API also features a filtering system to search for expenses by dates and categories.
+## Current Capabilities
 
+- JWT auth (signup/login)
+- CRUD expenses with filters
+- Postgres via `DATABASE_URL`
+- Docker + docker-compose (API + small Postgres)
+- Seed script + smoke test
+- Dashboard UI served by the same FastAPI app (`/dashboard`)
 
-This project is inspired by an idea from [roadmap.sh](https://roadmap.sh), a platform that offers community-created roadmaps, best practices, projects, and resources to help people grow in their technology careers.
+## Stack
 
+- FastAPI + SQLAlchemy + Alembic
+- PostgreSQL
+- Docker
 
-Specific inspiration for this project comes from the following link: [Expense Tracker API in roadmap.sh](https://roadmap.sh/projects/expense-tracker-api)
-
-
-<img alt="Static Badge" src="https://img.shields.io/badge/Version-1.2.15-seagreen?style=for-the-badge">
-
-
-<br>
-
-## Features
-
-- **Account management:** Users can register, login, update their username or delete their account.
-- **Authentication with JWT:** The API is protected by JSON Web Tokens (JWT), only authenticated users can access their data and perform operations on the API.
-- **Expense administration:** Users can create, read, update and delete their expenses. Expenses can be filtered by dates and categories.
-- **Secure and Scalable Database:** The database I used is PostgreSQL. Sensitive settings, such as the database connection URL, are managed through an `.env` file, so users can easily switch databases if they prefer, by adjusting only the `DATABASE_URL` variable.
-- **Database Migrations:** Database schema is kept up to date through migrations managed with Alembic.
-- **Automated testing:** This project uses pytest to perform unit tests and check that everything works correctly.
-
-<br>
 
 ## Installation
 
@@ -114,7 +104,7 @@ pytest
 ## How to use it
 
 Once the application is running, you can access Swagger's interactive API documentation at 
-`http://localhost:8000/docs`, where you can visualize and test the available API endpoints.
+`http://localhost:8080/docs`, where you can visualize and test the available API endpoints.
 
 ### Main Endpoints
 
