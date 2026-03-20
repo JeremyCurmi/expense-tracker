@@ -58,7 +58,7 @@ Specific inspiration for this project comes from the following link: [Expense Tr
 
 5. This project uses environment variables to configure the connection to the database and a secret key for JWT authentication. You must create a file named `.env` in the root directory of the project with the following variables:
 
-   ```python
+   ```bash
    DATABASE_URL=postgresql://<your_user>:<your_password>@localhost/<your_database>
    SECRET_KEY=<generated_unique_key>
    ```
@@ -72,11 +72,24 @@ Specific inspiration for this project comes from the following link: [Expense Tr
    Copy the generated value and assign it to the `SECRET_KEY` variable in your `.env` file. If you plan to use a different database, such as SQLite or MySQL, simply update the `DATABASE_URL` with the connection string relevant to your chosen database.
 
    > Note: Make sure not to include the .env file in version control, as it contains sensitive information. The project is already configured with a .gitignore file to automatically exclude this file.
-7. Start the API development server with the following command:
+
+6. Start the API development server with the following command:
 
     ```bash
-    uvicorn main:app --reload
+    uvicorn app.main:app --reload
     ```
+
+### Docker (API + small Postgres)
+
+```bash
+cp .env.example .env
+# edit SECRET_KEY
+
+docker compose up --build
+```
+
+API: http://localhost:8080
+Docs: http://localhost:8080/docs
 
 <br>
 
@@ -104,7 +117,13 @@ Once the application is running, you can access Swagger's interactive API docume
 
 **Authentication:**
 - **POST** `/signup` - User registration.
-- **POST** `/login` - User login.
+- **POST** `/login` - User login (form data: `username`, `password`).
+
+After login, use the JWT:
+
+```
+Authorization: Bearer <access_token>
+```
 
 **Expenses:**
 - **GET** `/expenses` - Retrieve a list of expenses.

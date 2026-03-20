@@ -13,7 +13,7 @@ URL = os.getenv("DATABASE_URL")
 
 # Ensure the URL is available
 if not URL:
-    raise ValueError("Database URL is missing. Please set the 'URL' environment variable.")
+    raise ValueError("Database URL is missing. Please set the 'DATABASE_URL' environment variable.")
 
 
 # Create the connection engine
