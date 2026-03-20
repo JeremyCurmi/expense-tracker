@@ -3,35 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Tracker Dashboard</title>
+    <title>Expense Tracker — Vault</title>
     <link rel="stylesheet" href="/dashboard/styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Expense Tracker</h1>
+    <div class="noise"></div>
+    <div class="aura"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="sigil">⟁</div>
+        <div>
+          <div class="name">Vault Ledger</div>
+          <div class="tag">Private cash intelligence</div>
+        </div>
+      </div>
+
       <div class="auth">
         <input id="token" type="password" placeholder="Paste JWT token" />
-        <button id="load">Load</button>
+        <button id="load">Sync</button>
       </div>
     </header>
 
-    <main>
-      <section class="summary">
-        <div>
-          <h2>Total Spend</h2>
-          <p id="total">€0.00</p>
+    <main class="layout">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">This month</p>
+          <h1>Precision on every euro.</h1>
+          <p class="lead">
+            A refined ledger view of your real spending — fast, quiet, and
+            uncompromising.
+          </p>
+          <div class="chips">
+            <span>Net: <strong id="net">€0.00</strong></span>
+            <span>Cashflow: <strong id="cashflow">€0.00</strong></span>
+            <span>Entries: <strong id="count">0</strong></span>
+          </div>
         </div>
-        <div>
-          <h2>Transactions</h2>
-          <p id="count">0</p>
+
+        <div class="hero-metric">
+          <div class="ring">
+            <svg viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="62" class="track" />
+              <circle cx="80" cy="80" r="62" class="progress" />
+            </svg>
+            <div class="ring-text">
+              <div class="big" id="total">€0.00</div>
+              <div class="small">total spend</div>
+            </div>
+          </div>
+          <div class="note">Updated on sync</div>
         </div>
       </section>
 
-      <section class="list">
-        <h2>Recent Expenses</h2>
-        <div id="rows"></div>
+      <section class="grid">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Category concentration</h2>
+            <span class="hint">Top 4</span>
+          </div>
+          <div id="categories" class="bars"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Recent activity</h2>
+            <span class="hint">Last 10</span>
+          </div>
+          <div id="rows" class="rows"></div>
+        </article>
       </section>
     </main>
+
+    <footer class="footer">Vault Ledger — local only prototype</footer>
 
     <script src="/dashboard/app.js"></script>
   </body>
