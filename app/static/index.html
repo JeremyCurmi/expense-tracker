@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker Dashboard</title>
+    <link rel="stylesheet" href="/dashboard/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Expense Tracker</h1>
+      <div class="auth">
+        <input id="token" type="password" placeholder="Paste JWT token" />
+        <button id="load">Load</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="summary">
+        <div>
+          <h2>Total Spend</h2>
+          <p id="total">€0.00</p>
+        </div>
+        <div>
+          <h2>Transactions</h2>
+          <p id="count">0</p>
+        </div>
+      </section>
+
+      <section class="list">
+        <h2>Recent Expenses</h2>
+        <div id="rows"></div>
+      </section>
+    </main>
+
+    <script src="/dashboard/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=IBM+Plex+Sans:wght@400;600&display=swap");
+
+:root {
+  --bg: #0b0c10;
+  --panel: #141822;
+  --text: #f4f1ea;
+  --muted: #a8a39a;
+  --accent: #e6a83f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 32px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+h1 { font-family: "Fraunces", serif; margin: 0; }
+
+.auth input {
+  background: var(--panel);
+  border: 1px solid #2a2f3c;
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.auth button {
+  margin-left: 8px;
+  padding: 8px 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary div {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.list {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr 120px;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #222733;
+}
+
+.row:last-child { border-bottom: none; }
+
+.muted { color: var(--muted); }

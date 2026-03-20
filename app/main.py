@@ -26,6 +26,14 @@ User.metadata.create_all(bind=engine)
 Expense.metadata.create_all(bind=engine)
 
 
+app.mount("/dashboard", StaticFiles(directory="app/static", html=True), name="dashboard")
+
+
+@app.get("/", include_in_schema=False)
+async def root():
+    return RedirectResponse(url="/dashboard/")
+
+
 # All routers
 app.include_router(health.router)
 app.include_router(auth.router)

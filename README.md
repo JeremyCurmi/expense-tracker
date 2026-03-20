@@ -86,10 +86,13 @@ cp .env.example .env
 # edit SECRET_KEY
 
 docker compose up --build
+python scripts/seed.py
+python scripts/smoke_test.py
 ```
 
 API: http://localhost:8080
 Docs: http://localhost:8080/docs
+Dashboard: http://localhost:8080/dashboard/
 
 <br>
 
