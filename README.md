@@ -91,6 +91,20 @@ Adjust the `.env` file if you need to change the database or authentication sett
 
 <br>
 
+## Fly.io Deployment
+
+```bash
+flyctl auth login
+flyctl launch --no-deploy
+flyctl postgres create --name expense-tracker-db --region otp
+flyctl postgres attach --app expense-tracker expense-tracker-db
+flyctl secrets set SECRET_KEY=$(openssl rand -hex 32)
+flyctl deploy
+```
+
+Dashboard: https://expense-tracker.fly.dev/dashboard/
+Docs: https://expense-tracker.fly.dev/docs
+
 ## Running Tests
 
 This project uses pytest to perform automated tests to ensure the reliability and functionality of key features.
